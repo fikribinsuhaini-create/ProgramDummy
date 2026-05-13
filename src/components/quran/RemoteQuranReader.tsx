@@ -202,6 +202,14 @@ export function RemoteQuranReader(props: Props) {
   const [selectedSurah, setSelectedSurah] = useState<number>(36);
   const [pageBookmarked, setPageBookmarked] = useState(false);
   const [sourceMode, setSourceMode] = useState<"juz" | "surah">("juz");
+  const allowSurahPicker = props.mode === "juz" ? props.allowSurahPicker : false;
+  const chapterSurah = props.mode === "chapter_range" ? props.surah : 0;
+  const chapterFromAyah = props.mode === "chapter_range" ? props.fromAyah : 0;
+  const chapterToAyah = props.mode === "chapter_range" ? props.toAyah : 0;
+  const chapterRangeKey =
+    props.mode === "chapter_range"
+      ? `${props.surah}:${props.fromAyah}-${props.toAyah}`
+      : null;
 
   const scopeKey =
     props.mode === "juz" ? `${props.scopeKey}:juz:${juzNumber}` : props.scopeKey;
@@ -219,7 +227,7 @@ export function RemoteQuranReader(props: Props) {
       try {
         // Best-effort: jump page view to selection (juz/surah).
         if (props.mode === "juz") {
-          if (props.allowSurahPicker && sourceMode === "surah") {
+          if (allowSurahPicker && sourceMode === "surah") {
             const resp = await fetchChapterVerses(selectedSurah, {
               page: 1,
               perPage: 1,
@@ -253,7 +261,7 @@ export function RemoteQuranReader(props: Props) {
   }, [
     viewMode,
     props.mode,
-    props.allowSurahPicker,
+    allowSurahPicker,
     sourceMode,
     selectedSurah,
     juzNumber,
@@ -270,7 +278,7 @@ export function RemoteQuranReader(props: Props) {
         const malay = await getMalayTranslationIdOrSlug();
         if (!cancelled) setTranslationKey(malay);
 
-        if ((props.mode === "juz" && props.allowSurahPicker) || viewMode === "page") {
+        if ((props.mode === "juz" && allowSurahPicker) || viewMode === "page") {
           const ch = await fetchChapters("en");
           if (!cancelled) {
             setChapters(
@@ -292,9 +300,9 @@ export function RemoteQuranReader(props: Props) {
 
         if (props.mode === "chapter_range") {
           const ck = cacheKeyForChapterRange(
-            props.surah,
-            props.fromAyah,
-            props.toAyah,
+            chapterSurah,
+            chapterFromAyah,
+            chapterToAyah,
             malay
           );
           const cached = getCachedRange(ck);
@@ -310,24 +318,15 @@ export function RemoteQuranReader(props: Props) {
         let all: RemoteVerse[] = [];
 
         while (true) {
-          const resp =
-            props.mode === "juz"
-              ? props.allowSurahPicker && sourceMode === "surah"
-                ? await fetchChapterVerses(selectedSurah, {
-                    page,
-                    perPage,
-                    translation: malay
-                  })
-                : await fetchJuzVerses(juzNumber, {
-                  page,
-                  perPage,
-                  translation: malay
-                })
-              : await fetchChapterVerses(props.surah, {
-                  page,
-                  perPage,
-                  translation: malay
-                });
+          let resp: Awaited<ReturnType<typeof fetchChapterVerses>> | Awaited<ReturnType<typeof fetchJuzVerses>>;
+          if (props.mode === "juz") {
+            resp =
+              allowSurahPicker && sourceMode === "surah"
+                ? await fetchChapterVerses(selectedSurah, { page, perPage, translation: malay })
+                : await fetchJuzVerses(juzNumber, { page, perPage, translation: malay });
+          } else {
+            resp = await fetchChapterVerses(chapterSurah, { page, perPage, translation: malay });
+          }
 
           all = all.concat(resp.data?.verses ?? []);
 
@@ -340,7 +339,8 @@ export function RemoteQuranReader(props: Props) {
 
         if (props.mode === "chapter_range") {
           all = all.filter(
-            (v) => v.verse_number >= props.fromAyah && v.verse_number <= props.toAyah
+            (v) =>
+              v.verse_number >= chapterFromAyah && v.verse_number <= chapterToAyah
           );
         }
 
@@ -348,9 +348,9 @@ export function RemoteQuranReader(props: Props) {
 
         if (props.mode === "chapter_range") {
           const ck = cacheKeyForChapterRange(
-            props.surah,
-            props.fromAyah,
-            props.toAyah,
+            chapterSurah,
+            chapterFromAyah,
+            chapterToAyah,
             malay
           );
           setCachedRange(ck, { cachedAt: Date.now(), translationKey: malay, verses: all });
@@ -367,7 +367,19 @@ export function RemoteQuranReader(props: Props) {
     return () => {
       cancelled = true;
     };
-  }, [props, juzNumber, viewMode, pageNumber, selectedSurah, sourceMode]);
+  }, [
+    props.mode,
+    chapterRangeKey,
+    chapterSurah,
+    chapterFromAyah,
+    chapterToAyah,
+    juzNumber,
+    viewMode,
+    pageNumber,
+    selectedSurah,
+    sourceMode,
+    allowSurahPicker
+  ]);
 
   const translationByVerseKey = useMemo(() => {
     const map = new Map<string, string>();
@@ -581,9 +593,9 @@ export function RemoteQuranReader(props: Props) {
               type="button"
               onClick={() => {
                 const ck = cacheKeyForChapterRange(
-                  props.surah,
-                  props.fromAyah,
-                  props.toAyah,
+                  chapterSurah,
+                  chapterFromAyah,
+                  chapterToAyah,
                   translationKey
                 );
                 clearCachedRange(ck);
