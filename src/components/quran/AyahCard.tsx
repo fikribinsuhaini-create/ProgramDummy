@@ -12,7 +12,7 @@ export function AyahCard({ ayah }: { ayah: Ayah }) {
           #{ayah.number}
         </div>
       </div>
-      <div className="arabic-text mt-3 text-3xl leading-[1.9]">
+      <div className="arabic-text mt-3 text-[clamp(1.6rem,5vw,2rem)] leading-[1.95]">
         {ayah.arabic}
       </div>
       {ayah.roman ? (
@@ -28,4 +28,3 @@ export function AyahCard({ ayah }: { ayah: Ayah }) {
     </Card>
   );
 }
-

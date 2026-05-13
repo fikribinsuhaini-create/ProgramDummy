@@ -42,7 +42,7 @@ export default function QuranIndexPage() {
                   {s.ayahs.length} ayat
                 </div>
               </div>
-              <div className="arabic-text text-2xl text-emerald-700 dark:text-emerald-300">
+              <div className="arabic-text max-w-[45%] text-right text-xl text-emerald-700 sm:text-2xl dark:text-emerald-300">
                 {s.nameArabic}
               </div>
             </Card>

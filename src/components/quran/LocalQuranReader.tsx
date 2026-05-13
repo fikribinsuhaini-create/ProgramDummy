@@ -50,19 +50,19 @@ export function LocalQuranReader({
   return (
     <div className="grid gap-3">
       <Card className="p-3">
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
           <div>
             <div className="text-sm font-semibold">Mode Bacaan</div>
             <div className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">
               Semua local: `quran-full.json` + `mushaf-pages.json`.
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:justify-end">
             <button
               type="button"
               onClick={() => setViewMode("ayah")}
               className={[
-                "rounded-2xl px-4 py-2 text-xs font-semibold shadow-soft",
+                "rounded-2xl px-3 py-2 text-xs font-semibold shadow-soft sm:px-4",
                 viewMode === "ayah"
                   ? "bg-emerald-600 text-white"
                   : "border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
@@ -77,7 +77,7 @@ export function LocalQuranReader({
                 setShowTranslation(false);
               }}
               className={[
-                "rounded-2xl px-4 py-2 text-xs font-semibold shadow-soft",
+                "rounded-2xl px-3 py-2 text-xs font-semibold shadow-soft sm:px-4",
                 viewMode === "page"
                   ? "bg-emerald-600 text-white"
                   : "border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
@@ -89,9 +89,9 @@ export function LocalQuranReader({
         </div>
 
         <div className="mt-3 grid gap-3 sm:grid-cols-2">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
             <div className="text-sm font-semibold">Source</div>
-            <div className="flex gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:flex">
               <button
                 type="button"
                 onClick={() => setSourceMode("juz")}
@@ -120,12 +120,12 @@ export function LocalQuranReader({
           </div>
 
           {sourceMode === "juz" ? (
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
               <div className="text-sm font-semibold">Pilih Juz</div>
               <select
                 value={juzNumber}
                 onChange={(e) => setJuzNumber(Number(e.target.value))}
-                className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 outline-none focus:ring-2 focus:ring-emerald-400 dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
+                className="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-900 outline-none focus:ring-2 focus:ring-emerald-400 sm:w-auto dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
               >
                 {Array.from({ length: 30 }, (_, i) => i + 1).map((n) => (
                   <option key={n} value={n}>

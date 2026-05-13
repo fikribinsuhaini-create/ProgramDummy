@@ -252,7 +252,7 @@ export function SolatDashboard() {
               }}
               className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 shadow-soft dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
             >
-              {/* Reload zon */}
+              Reload zon
             </button>
             <button
               type="button"
