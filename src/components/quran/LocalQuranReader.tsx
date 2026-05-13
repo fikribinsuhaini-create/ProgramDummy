@@ -14,15 +14,11 @@ type SourceMode = "juz" | "surah";
 export function LocalQuranReader({
   initialSourceMode = "juz",
   initialJuz = 1,
-  initialSurah = 1,
-  onBack,
-  backHref
+  initialSurah = 1
 }: {
   initialSourceMode?: SourceMode;
   initialJuz?: number;
   initialSurah?: number;
-  onBack?: () => void;
-  backHref?: string;
 }) {
   const [viewMode, setViewMode] = useState<ViewMode>("ayah");
   const [sourceMode, setSourceMode] = useState<SourceMode>(initialSourceMode);
@@ -30,7 +26,7 @@ export function LocalQuranReader({
   const [surahNumber, setSurahNumber] = useState(initialSurah);
   const [showTranslation, setShowTranslation] = useState(true);
 
-  const surahs = (quranFull as unknown as { surahs?: Surah[] }).surahs ?? [];
+  const surahs = useMemo(() => (quranFull as unknown as { surahs?: Surah[] }).surahs ?? [], []);
   const surahOptions = useMemo(
     () => surahs.map((s) => ({ id: s.number, label: `${s.number}. ${s.nameMalay}` })),
     [surahs]

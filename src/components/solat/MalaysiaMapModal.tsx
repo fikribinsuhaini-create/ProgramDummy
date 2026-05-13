@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -105,10 +105,8 @@ function MalaysiaMapModalInner({
           <div className="max-h-[70vh] w-full overflow-auto p-2">
             <div
               ref={hostRef}
-              className="mx-auto w-full [svg]:mx-auto [svg]:block [svg]:h-auto [svg]:min-w-[920px] [svg]:max-w-none"
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: svgText ?? "<div class='p-4 text-sm'>Loading map…</div>"
+              className="mx-auto w-full [svg]:mx-auto [svg]:block [svg]:h-auto [svg]:min-w-[920px] [svg]:max-w-none"dangerouslySetInnerHTML={{
+                __html: svgText ?? "<div class='p-4 text-sm'>Loading map...</div>"
               }}
             />
           </div>

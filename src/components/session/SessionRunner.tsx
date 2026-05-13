@@ -190,7 +190,7 @@ export function SessionRunner({ session }: { session: Session }) {
     }
 
     return null;
-  }, [item]);
+  }, [item, session.id]);
 
   if (!item) {
     return (

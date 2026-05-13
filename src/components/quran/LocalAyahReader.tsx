@@ -31,7 +31,7 @@ export function LocalAyahReader({
   surahNumber: number;
   showTranslation: boolean;
 }) {
-  const surahs = (quranFull as unknown as { surahs?: Surah[] }).surahs ?? [];
+  const surahs = useMemo(() => (quranFull as unknown as { surahs?: Surah[] }).surahs ?? [], []);
   const surahByNumber = useMemo(() => new Map(surahs.map((s) => [s.number, s])), [surahs]);
 
   const verseKeys = useMemo(() => {
@@ -59,4 +59,3 @@ export function LocalAyahReader({
     </div>
   );
 }
-
