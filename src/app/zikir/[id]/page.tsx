@@ -3,12 +3,9 @@ import { PageHeader } from "@/components/PageHeader";
 import { getZikirById } from "@/lib/data";
 import { ZikirCounter } from "@/components/zikir/ZikirCounter";
 
-export default function ZikirDetailPage({
-  params
-}: {
-  params: { id: string };
-}) {
-  const zikir = getZikirById(params.id);
+export default async function ZikirDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const zikir = getZikirById(id);
   if (!zikir) return notFound();
 
   return (
@@ -20,4 +17,3 @@ export default function ZikirDetailPage({
     </div>
   );
 }
-
