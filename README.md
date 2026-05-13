@@ -1,4 +1,4 @@
-# ProgramByUstazLah (MVP)
+# ProgramDummy (MVP)
 
 Web app / PWA (Next.js + Tailwind) untuk:
 - Al-Quran (rujuk data `quran.json`)
