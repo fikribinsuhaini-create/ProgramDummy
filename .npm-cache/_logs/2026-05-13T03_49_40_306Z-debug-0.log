@@ -1,0 +1,67 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\fikri\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v24.11.0
+3 silly config load:file:C:\Users\fikri\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\fikri\Desktop\Vibe\Program\.npmrc
+5 silly config load:file:C:\Users\fikri\.npmrc
+6 silly config load:file:C:\Users\fikri\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install
+8 verbose argv "install"
+9 verbose logfile logs-max:10 dir:C:\Users\fikri\Desktop\Vibe\Program\.npm-cache\_logs\2026-05-13T03_49_40_306Z-
+10 verbose logfile C:\Users\fikri\Desktop\Vibe\Program\.npm-cache\_logs\2026-05-13T03_49_40_306Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ECONNREFUSED
+13 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+14 silly idealTree buildDeps
+15 silly fetch manifest next@15.5.7
+16 silly packumentCache full:https://registry.npmjs.org/next cache-miss
+17 http fetch GET https://registry.npmjs.org/next attempt 1 failed with ECONNREFUSED
+18 http fetch GET https://registry.npmjs.org/npm attempt 2 failed with ECONNREFUSED
+19 http fetch GET https://registry.npmjs.org/next attempt 2 failed with ECONNREFUSED
+20 http fetch GET https://registry.npmjs.org/npm attempt 3 failed with ECONNREFUSED
+21 http fetch GET https://registry.npmjs.org/next attempt 3 failed with ECONNREFUSED
+22 silly fetch manifest eslint-config-next@15.5.7
+23 silly packumentCache full:https://registry.npmjs.org/eslint-config-next cache-miss
+24 http fetch GET https://registry.npmjs.org/eslint-config-next attempt 1 failed with ECONNREFUSED
+25 http fetch GET https://registry.npmjs.org/eslint-config-next attempt 2 failed with ECONNREFUSED
+26 http fetch GET https://registry.npmjs.org/eslint-config-next attempt 3 failed with ECONNREFUSED
+27 silly placeDep ROOT eslint-config-next@ REPLACE for: program-by-ustaz-lah@0.1.0 want: 15.5.7
+28 silly placeDep ROOT next@ REPLACE for: program-by-ustaz-lah@0.1.0 want: 15.5.7
+29 verbose type system
+30 verbose stack FetchError: request to https://registry.npmjs.org/eslint-config-next failed, reason: connect ECONNREFUSED 127.0.0.1:9
+30 verbose stack     at ClientRequest.<anonymous> (C:\Users\fikri\AppData\Roaming\npm\node_modules\npm\node_modules\minipass-fetch\lib\index.js:130:14)
+30 verbose stack     at ClientRequest.emit (node:events:508:28)
+30 verbose stack     at emitErrorEvent (node:_http_client:107:11)
+30 verbose stack     at _destroy (node:_http_client:954:9)
+30 verbose stack     at onSocketNT (node:_http_client:974:5)
+30 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+31 error code ECONNREFUSED
+32 error syscall connect
+33 error errno ECONNREFUSED
+34 error FetchError: request to https://registry.npmjs.org/eslint-config-next failed, reason: connect ECONNREFUSED 127.0.0.1:9
+34 error     at ClientRequest.<anonymous> (C:\Users\fikri\AppData\Roaming\npm\node_modules\npm\node_modules\minipass-fetch\lib\index.js:130:14)
+34 error     at ClientRequest.emit (node:events:508:28)
+34 error     at emitErrorEvent (node:_http_client:107:11)
+34 error     at _destroy (node:_http_client:954:9)
+34 error     at onSocketNT (node:_http_client:974:5)
+34 error     at process.processTicksAndRejections (node:internal/process/task_queues:91:21) {
+34 error   code: 'ECONNREFUSED',
+34 error   errno: 'ECONNREFUSED',
+34 error   syscall: 'connect',
+34 error   address: '127.0.0.1',
+34 error   port: 9,
+34 error   type: 'system',
+34 error   requiredBy: '.'
+34 error }
+35 error
+35 error If you are behind a proxy, please make sure that the
+35 error 'proxy' config is set properly.  See: 'npm help config'
+36 silly unfinished npm timer reify 1778644180791
+37 silly unfinished npm timer reify:loadTrees 1778644180791
+38 verbose cwd C:\Users\fikri\Desktop\Vibe\Program
+39 verbose os Windows_NT 10.0.26200
+40 verbose node v24.11.0
+41 verbose npm  v11.6.2
+42 verbose exit 1
+43 verbose code 1
+44 error A complete log of this run can be found in: C:\Users\fikri\Desktop\Vibe\Program\.npm-cache\_logs\2026-05-13T03_49_40_306Z-debug-0.log
