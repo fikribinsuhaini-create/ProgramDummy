@@ -3,8 +3,9 @@ import { PageHeader } from "@/components/PageHeader";
 import { Card } from "@/components/ui/Card";
 import { getDoaById } from "@/lib/data";
 
-export default function DoaDetailPage({ params }: { params: { id: string } }) {
-  const doa = getDoaById(params.id);
+export default async function DoaDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const doa = getDoaById(id);
   if (!doa) return notFound();
 
   return (
@@ -28,4 +29,3 @@ export default function DoaDetailPage({ params }: { params: { id: string } }) {
     </div>
   );
 }
-
