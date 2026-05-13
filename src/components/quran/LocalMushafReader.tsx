@@ -24,7 +24,8 @@ function toArabicIndic(n: number) {
 }
 
 function renderAyahMarker(n: number) {
-  return `۝${toArabicIndic(n)}`;
+  // Mushaf-ish marker that works consistently across fonts/devices.
+  return `﴿${toArabicIndic(n)}﴾`;
 }
 
 function ayahNumberFromVerseKey(verseKey: string) {
@@ -56,18 +57,18 @@ export function LocalMushafReader({
   const [showTranslation, setShowTranslation] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
 
-  const surahs = (quranFull as unknown as { surahs?: Surah[] }).surahs;
+  const surahs = useMemo(() => (quranFull as unknown as { surahs?: Surah[] }).surahs ?? [], []);
   const chapterNameById = useMemo(() => {
     const map = new Map<number, { simple: string; arabic: string }>();
-    for (const s of surahs ?? []) map.set(s.number, { simple: s.nameMalay, arabic: s.nameArabic });
+    for (const s of surahs) map.set(s.number, { simple: s.nameMalay, arabic: s.nameArabic });
     return map;
   }, [surahs]);
 
-  const verseIndex = useMemo(() => buildVerseTextIndex(surahs ?? []), [surahs]);
+  const verseIndex = useMemo(() => buildVerseTextIndex(surahs), [surahs]);
 
   const current = useMemo(() => {
     const page = getMushafPage(pageNumber);
-    if (!page) return { page: pageNumber, verses: [] as PageVerseRef[] };
+    if (!page) return { page: pageNumber, verses: [] as PageVerseRef[], juz: undefined as number | undefined };
     return page;
   }, [pageNumber]);
 
@@ -82,6 +83,10 @@ export function LocalMushafReader({
       if (p) setPageNumber(p);
     }
   }, [jumpSurah, jumpJuz]);
+
+  useEffect(() => {
+    setBookmarked(isPageBookmarked(pageNumber));
+  }, [pageNumber]);
 
   const pageVerses = useMemo(() => {
     return current.verses
@@ -112,8 +117,8 @@ export function LocalMushafReader({
   return (
     <div className="grid gap-3">
       <Card className="p-3">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center justify-between gap-2">
             <button
               type="button"
               onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
@@ -121,10 +126,16 @@ export function LocalMushafReader({
             >
               Prev
             </button>
-            <div className="text-sm font-semibold tabular-nums">
-              {surahTitle ?? "Al-Quran"} •{" "}
-              {typeof current.juz === "number" ? `Juz ${current.juz} • ` : ""}
-              Page {pageNumber}
+            <div className="min-w-0 flex-1 px-2 text-center text-sm font-semibold tabular-nums">
+              <span className="truncate">{surahTitle ?? "Al-Quran"}</span>
+              <span className="px-2 text-zinc-400">•</span>
+              {typeof (current as { juz?: number }).juz === "number" ? (
+                <>
+                  <span>Juz {(current as { juz?: number }).juz}</span>
+                  <span className="px-2 text-zinc-400">•</span>
+                </>
+              ) : null}
+              <span>Page {pageNumber}</span>
             </div>
             <button
               type="button"
@@ -135,7 +146,7 @@ export function LocalMushafReader({
             </button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-end gap-2">
             <button
               type="button"
               onClick={() => setShowTranslation((v) => !v)}
@@ -167,8 +178,8 @@ export function LocalMushafReader({
         </div>
       </Card>
 
-      <Card className="p-4">
-        <div className="mt-1 arabic-text text-[28px] leading-[2.1] text-zinc-900 dark:text-zinc-100 [text-align:justify]">
+      <Card className="p-3 sm:p-4">
+        <div className="mt-1 arabic-text text-[clamp(22px,5.6vw,30px)] leading-[2.05] text-zinc-900 dark:text-zinc-100 [text-align:justify]">
           {pageVerses.map((v, idx) => {
             const prev = pageVerses[idx - 1];
             const isNewSurah = !prev || prev.chapter_id !== v.chapter_id;
@@ -213,3 +224,4 @@ export function LocalMushafReader({
     </div>
   );
 }
+
