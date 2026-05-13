@@ -2,12 +2,9 @@ import { notFound } from "next/navigation";
 import { getSessionById } from "@/lib/data";
 import { SessionRunner } from "@/components/session/SessionRunner";
 
-export default function SessionRunPage({
-  params
-}: {
-  params: { id: string };
-}) {
-  const session = getSessionById(params.id);
+export default async function SessionRunPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const session = getSessionById(id);
   if (!session) return notFound();
 
   return (
@@ -16,4 +13,3 @@ export default function SessionRunPage({
     </div>
   );
 }
-
