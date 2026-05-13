@@ -19,6 +19,8 @@ export type RemoteVerse = {
   verse_number: number;
   chapter_id: number;
   text_uthmani: string;
+  // Some endpoints include derived metadata (e.g. page number).
+  page?: number;
   translations?: VerseTranslation[];
 };
 
