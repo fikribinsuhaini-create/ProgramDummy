@@ -1,0 +1,112 @@
+{
+  "items": [
+    {
+      "id": "munajat-pagi",
+      "title": "Munajat Pagi",
+      "description": "Bacaan Yasin + 100x Tasbih.",
+      "author": "Ustaz Lah",
+      "items": [
+        {
+          "type": "quran",
+          "surah": 36,
+          "fromAyah": 1,
+          "toAyah": 83,
+          "title": "Surah Yasin"
+        },
+        {
+          "type": "zikir",
+          "ref": "tasbih",
+          "title": "Tasbih",
+          "targetCount": 100
+        }
+      ]
+    },
+    {
+      "id": "satu-hari-satu-juzuk",
+      "title": "1 Hari 1 Juzuk",
+      "description": "Baca Al-Quran ikut juz (offline). Ada 2 mode: ayat+terjemahan atau muka surat.",
+      "author": "Ustaz Lah",
+      "items": [
+        {
+          "type": "quran_local_reader",
+          "title": "Reader",
+          "initialSourceMode": "juz",
+          "initialJuz": 1
+        }
+      ]
+    },
+    {
+      "id": "pembuka-rezeki-sejuta-selawat",
+      "title": "Pembuka Rezeki dan Sejuta Selawat",
+      "description": "Flow demo berdasarkan senarai terbaru (rujuk teks untuk semakan).",
+      "author": "Ustaz Lah",
+      "items": [
+        {
+          "type": "doa",
+          "ref": "pembuka-aurat",
+          "title": "Pembuka Aurat"
+        },
+        {
+          "type": "doa",
+          "ref": "istighfar-kabir",
+          "title": "Istighfar Kabir"
+        },
+        {
+          "type": "zikir",
+          "ref": "selawat-azimiyah",
+          "title": "Selawat Azimiyah"
+        },
+        {
+          "type": "quran",
+          "surah": 56,
+          "fromAyah": 1,
+          "toAyah": 96,
+          "title": "Surah Al-Waqi'ah"
+        },
+        {
+          "type": "quran_group",
+          "title": "Surah Al-Kahf (10 awal + 10 akhir)",
+          "parts": [
+            {
+              "surah": 18,
+              "fromAyah": 1,
+              "toAyah": 10,
+              "title": "10 awal Surah Al-Kahf"
+            },
+            {
+              "surah": 18,
+              "fromAyah": 101,
+              "toAyah": 110,
+              "title": "10 akhir Surah Al-Kahf"
+            }
+          ]
+        },
+        {
+          "type": "quran",
+          "surah": 2,
+          "fromAyah": 284,
+          "toAyah": 286,
+          "title": "3 ayat akhir Surah Al-Baqarah"
+        },
+        {
+          "type": "quran",
+          "surah": 2,
+          "fromAyah": 255,
+          "toAyah": 255,
+          "title": "Ayat Kursi"
+        },
+        {
+          "type": "doa",
+          "ref": "hizb-mughni",
+          "title": "Hizb Mughni"
+        },
+        {
+          "type": "zikir",
+          "ref": "selawat",
+          "title": "Selawat",
+          "targetCount": 100
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-cream-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100;
+}
+
+.arabic-text {
+  font-family:
+    "Noto Naskh Arabic",
+    "Amiri",
+    "Scheherazade New",
+    serif;
+  letter-spacing: 0.2px;
+}
+
