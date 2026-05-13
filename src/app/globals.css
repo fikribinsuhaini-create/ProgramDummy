@@ -22,5 +22,6 @@ body {
     "Scheherazade New",
     serif;
   letter-spacing: 0.2px;
+  direction: rtl;
+  unicode-bidi: isolate;
 }
-

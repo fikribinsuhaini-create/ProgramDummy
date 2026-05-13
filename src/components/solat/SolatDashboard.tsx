@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { DEFAULT_ZONE, SOLAT_ZONES_FALLBACK, type SolatZone } from "@/lib/solat/zones";
-import { clearZonesCache, fetchAllZones } from "@/lib/solat/locations";
+import { fetchAllZones } from "@/lib/solat/locations";
 import { MalaysiaMapModal } from "@/components/solat/MalaysiaMapModal";
 import {
   buildPrayerTimes,
@@ -15,7 +15,6 @@ import {
 } from "@/lib/solat/jakim";
 
 const ZONE_KEY = "pbul:solat:zone:v1";
-const FORMAT_KEY = "pbul:solat:12h:v1";
 
 function saveZone(zone: string) {
   window.localStorage.setItem(ZONE_KEY, zone);
@@ -32,7 +31,6 @@ export function SolatDashboard() {
   // Avoid hydration mismatch: keep "now" null until mounted, so SSR/first client render match.
   const [now, setNow] = useState<Date | null>(null);
   const [mapOpen, setMapOpen] = useState(false);
-  const [use12h, setUse12h] = useState(true);
 
   function normalizeState(s: string) {
     const x = s.trim().toLowerCase();
@@ -47,12 +45,6 @@ export function SolatDashboard() {
     try {
       const z = window.localStorage.getItem(ZONE_KEY);
       if (z) setZone(z.toUpperCase());
-    } catch {
-      // ignore
-    }
-    try {
-      const v = window.localStorage.getItem(FORMAT_KEY);
-      setUse12h((v ?? "true") === "true");
     } catch {
       // ignore
     }
@@ -125,7 +117,7 @@ export function SolatDashboard() {
   }, [next, now]);
 
   const fmtTime = (t: PrayerTime) => {
-    if (!use12h) return t.time;
+    // Default 12-hour format (UI toggle removed).
     const [hhStr, mmStr] = t.time.split(":");
     const hh = Number(hhStr);
     const mm = Number(mmStr);
@@ -205,18 +197,6 @@ export function SolatDashboard() {
             >
               Pilih Negeri (Peta)
             </button>
-            {stateFilter || codeFilter ? (
-              <button
-                type="button"
-                onClick={() => {
-                  setStateFilter(null);
-                  setCodeFilter(null);
-                }}
-                className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 shadow-soft dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
-              >
-                Tunjuk semua zon
-              </button>
-            ) : null}
             <select
               value={zone}
               onChange={(e) => {
@@ -243,28 +223,6 @@ export function SolatDashboard() {
                 </option>
               ))}
             </select>
-            <button
-              type="button"
-              onClick={() => {
-                clearZonesCache();
-                // force re-fetch
-                fetchAllZones().then((z) => setZones(z));
-              }}
-              className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 shadow-soft dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
-            >
-              Reload zon
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                const next = !use12h;
-                setUse12h(next);
-                window.localStorage.setItem(FORMAT_KEY, String(next));
-              }}
-              className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 shadow-soft dark:border-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-100"
-            >
-              Format: {use12h ? "12 jam" : "24 jam"}
-            </button>
           </div>
         </div>
       </Card>

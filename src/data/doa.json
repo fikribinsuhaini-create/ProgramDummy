@@ -3,7 +3,7 @@
     {
       "id": "doa-pembuka-majlis",
       "title": "Doa Pembuka Majlis",
-      "arabic": "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ",
+      "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
       "roman": "Bismillāhir-raḥmānir-raḥīm",
       "ms": "Dengan nama Allah Yang Maha Pemurah lagi Maha Mengasihani.",
       "category": "Majlis"
@@ -11,7 +11,7 @@
     {
       "id": "doa-penutup-majlis",
       "title": "Doa Penutup Majlis (Kaffarah Majlis)",
-      "arabic": "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",
+      "arabic": "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا أَنْتَ، أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",
       "roman": "Subḥānaka Allāhumma wa biḥamdika, ash-hadu an lā ilāha illā anta, astaghfiruka wa atūbu ilaik",
       "ms": "Maha Suci Engkau Ya Allah, dengan memuji-Mu, aku bersaksi tiada Tuhan melainkan Engkau, aku memohon ampun kepada-Mu dan bertaubat kepada-Mu.",
       "category": "Majlis"
@@ -19,34 +19,26 @@
     {
       "id": "doa-yasin",
       "title": "Doa Yasin (Ringkas)",
-      "arabic": "اللَّهُمَّ اجْعَلْ خَيْرَ عُمُرِي آخِرَهُ وَخَيْرَ عَمَلِي خَوَاتِيمَهُ وَخَيْرَ أَيَّامِي يَوْمَ أَلْقَاكَ فِيهِ",
-      "roman": "Allāhummaj‘al khaira ‘umurī ākhirah, wa khaira ‘amalī khawātimah, wa khaira ayyāmī yauma alqāka fīh",
+      "arabic": "اللَّهُمَّ اجْعَلْ خَيْرَ عُمُرِي آخِرَهُ، وَخَيْرَ عَمَلِي خَوَاتِمَهُ، وَخَيْرَ أَيَّامِي يَوْمَ أَلْقَاكَ فِيهِ",
+      "roman": "Allāhummaj‘al khaira ‘umrī ākhirah, wa khaira ‘amalī khawātimah, wa khaira ayyāmī yauma alqāka fīh",
       "ms": "Ya Allah, jadikan sebaik-baik umurku di penghujungnya, sebaik-baik amalku pada penutupnya, dan sebaik-baik hariku pada hari aku bertemu dengan-Mu.",
       "category": "Quran"
     },
     {
-      "id": "pembuka-aurat",
-      "title": "Doa ‘Aafiyah (Pembuka Aurat)",
-      "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي",
-      "roman": "Allāhumma innī as’alukal-‘āfiyata fid-dunyā wal-ākhirah. Allāhumma innī as’alukal-‘afwa wal-‘āfiyata fī dīnī wa dunyāya wa ahlī wa mālī. Allāhumma’stur ‘awrātī wa āmin raw‘ātī. Allāhumma’ḥfaẓnī min bayni yadayya wa min khalfī wa ‘an yamīnī wa ‘an shimālī wa min fawqī. Wa a‘ūdhu bi‘aẓamatika an ughtāla min taḥtī.",
-      "ms": "Doa pagi/petang: mohon afiat, keampunan, perlindungan aib/aurat, dan keselamatan dari semua arah.",
-      "category": "Perlindungan"
+      "id": "pembuka-aurad",
+      "title": "Pembuka Aurad",
+      "arabic": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ.\nٱللّٰهُمَّ إِنِّي أُقَدِّمُ إِلَيْكَ بَيْنَ يَدَيْ كُلِّ نَفَسٍ وَلَمْحَةٍ وَطَرْفَةٍ يَطْرِفُ بِهَا أَهْلُ ٱلسَّمَـٰوَاتِ وَأَهْلُ ٱلْأَرْضِ، وَكُلِّ شَيْءٍ هُوَ فِي عِلْمِكَ كَآئِنٌ أَوْ قَدْ كَانَ، أُقَدِّمُ إِلَيْكَ بَيْنَ يَدَيْ ذٰلِكَ كُلِّهِ.",
+      "roman": "",
+      "ms": "Ya Allah, sesungguhnya aku persembahkan (amalanku ini) kepadaMu di hadapan setiap nafas, setiap kerlipan mata dan setiap pandangan seluruh penduduk langit dan bumi, dan setiap sesuatu yang berada dalam pengetahuanMu, sama ada yang akan berlaku atau pun yang telah berlaku. Aku persembahkan kepadaMu di hadapan semuanya itu (sebagai saksi amalanku ini).",
+      "category": "Aurad"
     },
     {
       "id": "istighfar-kabir",
-      "title": "Istighfar Kabir (Dummy)",
-      "arabic": "اللَّهُمَّ أَنْتَ رَبِّي لا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي؛ فَإِنَّهُ لا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
-      "roman": "Allāhumma anta rabbī, lā ilāha illā anta, khalaqtanī wa anā ‘abduk, wa anā ‘alā ‘ahdika wa wa‘dika mā istaṭa‘t, a‘ūdhu bika min sharri mā ṣana‘t, abū’u laka bini‘matika ‘alayya, wa abū’u bidhanbī faghfir lī; fa innahu lā yaghfirudh-dhunūba illā ant",
-      "ms": "Istighfar yang masyhur (Sayyidul Istighfar): pengakuan rububiyyah Allah, nikmat, dosa, dan mohon ampun.",
+      "title": "Istighfar Kabir",
+      "arabic": "أَسْتَغْفِرُ اللهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلا هُوَ الْحَيَّ الْقَيُّومَ غَفَّا رَ الذُّنُوبِ ذَا الْجَلالِ وَالإِكْرَامِ وَأَتُوبُ إِلَيْهِ مِنْ جَمِيعِ الْمَعَاصِي كُلِّهَا وَالذُّنُوبِ وَالآثَامِ وَمِنْ كُلِّ ذَنْبٍ أَذْنَبْتُهُ عَمْدًا وَخَطَأ ظَاهِرًا وَبَاطِئًا قَوْلاً وَفِعْلاً فِي جَمِيعِ حَرَكَاتِي وَسَكَنَاتِي وَخَطَرَاتِي وَأَنْفَاسِي كُلِّهَا دَائِمًا أَبَدًا سَرْمَدًا مِنَ الذَّنْبِ الَّذِي أَعْلَمُ وَ مِنَ الذَّنْبِ الَّذِي لَا أَعْلَمَ عَدَدَ مَا أَحَاطَ بِهِ الْعِلْمُ وَأَحْصَاهُ الْكِتَابُ وَخَطَّهُ الْقَلَمُ وَعَدَدَ مَا أَوْ جَدَتْهُ الْقُدْرَةُ وَخَصَّصَتْهُ الإِرَادَةُ وَمِدَادَ كَلِمَاتِ اللَّهِ كَمَا يَنْبَغِي لِجَلَالِ وَجْهِ رَبِّنَا وَجَمَالِهِ وَكَمَالِهِ وَكَمَا يُحِبُّ رَبُّنَا وَيَرْضَى .",
+      "roman": "Astaghfirullāhal ‘aẓīm… (rujuk teks Arab).",
+      "ms": "Aku beristighfar kepada Allah yang Maha Agung, yang tiada tuhan melainkan Dia, Yang Maha Hidup, Yang Berdiri dengan Sendirinya, Yang Mengampunkan dosa-dosa, Yang Memiliki Kebesaran dan Kemuliaan, dan aku bertaubat kepadaNya dari maksiat-maksiat sekeliannya, serta dosa-dosa dan kejahatan-kejahatan, dan dari setiap dosa yang telah aku lakukan, dengan sengaja atau tidak sengaja, zahir dan batin, pada per-kataan dan perbuatan, pada seluruh gerakku dan diamku, serta seluruh hati dan nafsuku sekeliannya, secara berkekalan dan berpanjangan selama-lamanya, dari dosa yang aku ketahui dan dari dosa yang tidak aku ketahui, sebanyak bilangan apa yang dirangkumi oleh Ilmu dan diliputi oleh al-Kitab, dan dituliskan oleh al-Qalam, dan sebanyak bilangan apa yang diadakan oleh al-Qudrah, dan ditentukan oleh al-Iradah, dan sebanyak kalimah-kalimah Allah, seperti yang layak bagi kebesaran wajah Tuhan kami, serta KeindahanNya dan KesempurnaanNya dan seperti yang dikasihi oleh Tuhan kami dan yang diridhaiNya.",
       "category": "Istighfar"
-    },
-    {
-      "id": "hizb-mughni",
-      "title": "Hizb Mughni (Dummy)",
-      "arabic": "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ\n\nاللهم بك استعنت فأعني، وبك استغنيت فأغنني، وعليك توكلت فأكفني، يا كافي اكفني المهمات من أمر الدنيا والآخرة يا رحمن الدنيا والآخره ورحيمهما، اللهم إني عبدك ببابك، ذليلك ببابك، أسيرك ببابك، مسكينك ببابك، ضيفك ببابك يا رب العالمين، الطالح ببابك يا غياث المستغيثين، مهموك ببابك يا كاشف كل كرب المكروبين، أنا عاصيك يا طالب المستغفرين، المقر ببابك يا غافراً للمذنبين، المعترف ببابك يا أرحم الراحمين، الخاطئ ببابك يا رب العالمين، الظالم البائس الخاشع ببابك، ارحمني يا مولاي بقضاء حوائجي\n\n(إلهي) أنت الغافر وأنا المسيء وهل يرحم المسيء إلا الغافر؟\n\nمولاي مولاي….. إلهي أنت الرب وأنا العبد وهل يرحم العبد إلا الرب؟\nمولاي مولاي إلهي أنت القوي وأنا الضعيف وهل يرحم الضعيف إلا القوى؟ مولاي مولاي… إلهي أنت المالك وأنا المملوك وهل يرحم المملوك إلا المالك؟ مولاي مولاي….. إلهي أنت العزيز وأنا الذليل وهل يرحم الذليل إلا العزيز؟ مولاي مولاي.. إلهي أنت الكريم وأنا اللئيم وهل يرحم أللئيم إلا الكريم؟ مولاي مولاي… إلهي أنت الرازق وأنا المرزوق وهل يرحم المرزوق إلا الرازق؟ مولاي مولاي… إلهي أنا الضعيف وأنا الذليل وأنا الحقير وأنت العلي وأنت العفو وأنت الغفور وأنت الغفار وأنت الحنان وأنت المنان وأنا المذنب أنا الخائف أنا الضعيف،،\n\nإلهي الأمان الأمان… في ظلمة القبر وضيقه، إلهي الأمان الأمان… عند سؤال منكر ونكير وهيبتهما، إلهى الأمان الأمان عند وحشة القبر وشدته، إلهي الأمان الأمان… (فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ )… إلهي الأمان الأمان.\n(يَوْمَ يُنفَخُ فِي الصُّورِ فَفَزِعَ مَن فِي السَّمَاوَاتِ وَمَن فِي الْأَرْضِ إِلَّا مَن شَاء اللَّهُ ) إلهي الأمان الأمان يوم (زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا ) إلهي الأمان الأمان يوم تشقق السماء بالغمام، إلهي الأمان الأمان… (يَوْمَ نَطْوِي السَّمَاء كَطَيِّ السِّجِلِّ لِلْكُتُبِ) …إلهي الأمان الأمان (..يَوْمَ تُبَدَّلُ الأَرْضُ غَيْرَ الأَرْضِ وَالسَّمَاوَاتُ وَبَرَزُواْ للّهِ الْوَاحِدِ الْقَهَّارِ) … إلهي الأمان الأمان .. (.يوم يَنظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ.)",
-      "roman": "—",
-      "ms": "Teks Arab diisi untuk semakan (rujuk sumber); terjemahan penuh belum dimasukkan.",
-      "category": "Hizb"
     }
   ]
 }
