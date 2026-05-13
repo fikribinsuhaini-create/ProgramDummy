@@ -21,6 +21,7 @@ export type RemoteVerse = {
   text_uthmani: string;
   // Some endpoints include derived metadata (e.g. page number).
   page?: number;
+  juz?: number;
   translations?: VerseTranslation[];
 };
 
