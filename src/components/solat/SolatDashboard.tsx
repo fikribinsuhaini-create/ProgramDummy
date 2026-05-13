@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { Card } from "@/components/ui/Card";
@@ -29,7 +29,8 @@ export function SolatDashboard() {
   const [codeFilter, setCodeFilter] = useState<string[] | null>(null);
   const [row, setRow] = useState<JakimTakwimRow | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [now, setNow] = useState(() => new Date());
+  // Avoid hydration mismatch: keep "now" null until mounted, so SSR/first client render match.
+  const [now, setNow] = useState<Date | null>(null);
   const [mapOpen, setMapOpen] = useState(false);
   const [use12h, setUse12h] = useState(true);
 
@@ -77,6 +78,7 @@ export function SolatDashboard() {
   }, [zone, zones.length]);
 
   useEffect(() => {
+    setNow(new Date());
     const id = window.setInterval(() => setNow(new Date()), 1000);
     return () => window.clearInterval(id);
   }, []);
@@ -116,9 +118,9 @@ export function SolatDashboard() {
   }, [zone]);
 
   const times: PrayerTime[] = useMemo(() => (row ? buildPrayerTimes(row) : []), [row]);
-  const next = useMemo(() => getNextPrayer(times, now), [times, now]);
+  const next = useMemo(() => (now ? getNextPrayer(times, now) : null), [times, now]);
   const countdown = useMemo(() => {
-    if (!next) return null;
+    if (!next || !now) return null;
     return formatCountdown(next.at.getTime() - now.getTime());
   }, [next, now]);
 
@@ -136,7 +138,7 @@ export function SolatDashboard() {
 
   const zoneLabel = useMemo(() => {
     const z = zones.find((x) => x.code === zone);
-    return z ? `${z.code} • ${z.state}` : zone;
+    return z ? `${z.code} - ${z.state}` : zone;
   }, [zone, zones]);
 
   const filteredZones = useMemo(() => {
@@ -237,7 +239,7 @@ export function SolatDashboard() {
             >
               {filteredZones.map((z) => (
                 <option key={z.code} value={z.code}>
-                  {z.code} — {z.state}
+                  {z.code} - {z.state}
                 </option>
               ))}
             </select>
@@ -276,7 +278,7 @@ export function SolatDashboard() {
         ) : null}
         {!row && !error ? (
           <div className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
-            Loading…
+            Loading...
           </div>
         ) : null}
         {next ? (

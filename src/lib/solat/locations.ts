@@ -13,6 +13,8 @@ type SolatMyLocation = {
 
 const CACHE_KEY = "pbul:solat:locations:v1";
 
+type ZonesCache = { cachedAt: number; zones: SolatZone[] };
+
 export function clearZonesCache() {
   try {
     window.localStorage.removeItem(CACHE_KEY);
@@ -29,13 +31,9 @@ export async function fetchAllZones(): Promise<SolatZone[]> {
       // Backward compat: previously stored as array directly.
       if (Array.isArray(parsed) && parsed.length > 10) return parsed as SolatZone[];
       // New format: { zones, cachedAt }
-      if (
-        parsed &&
-        typeof parsed === "object" &&
-        Array.isArray((parsed as any).zones) &&
-        (parsed as any).zones.length > 10
-      ) {
-        return (parsed as any).zones as SolatZone[];
+      if (parsed && typeof parsed === "object") {
+        const maybe = parsed as Partial<ZonesCache>;
+        if (Array.isArray(maybe.zones) && maybe.zones.length > 10) return maybe.zones;
       }
     }
   } catch {

@@ -1,10 +1,5 @@
 import { PageHeader } from "@/components/PageHeader";
-import dynamic from "next/dynamic";
-
-const SolatDashboard = dynamic(
-  () => import("@/components/solat/SolatDashboard").then((m) => m.SolatDashboard),
-  { ssr: false }
-);
+import { SolatDashboard } from "@/components/solat/SolatDashboard";
 
 export default function SolatPage() {
   return (

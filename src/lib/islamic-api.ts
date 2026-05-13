@@ -22,6 +22,14 @@ export type RemoteVerse = {
   translations?: VerseTranslation[];
 };
 
+export type RemoteChapter = {
+  id: number;
+  name_simple: string;
+  name_arabic: string;
+  name_complex?: string;
+  verses_count?: number;
+};
+
 type PagedVersesResponse = {
   code: number;
   status: string;
@@ -137,5 +145,5 @@ export async function fetchPageVerses(
 export async function fetchChapters(language?: string) {
   const lang = language ?? "en";
   const url = `${API_BASE}/chapters?language=${encodeURIComponent(lang)}`;
-  return fetchJson<{ code: number; status: string; data: { chapters: any[] } }>(url);
+  return fetchJson<{ code: number; status: string; data: { chapters: RemoteChapter[] } }>(url);
 }

@@ -56,7 +56,7 @@ export function LocalMushafReader({
   const [showTranslation, setShowTranslation] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
 
-  const surahs = (quranFull as any).surahs as Surah[] | undefined;
+  const surahs = (quranFull as unknown as { surahs?: Surah[] }).surahs;
   const chapterNameById = useMemo(() => {
     const map = new Map<number, { simple: string; arabic: string }>();
     for (const s of surahs ?? []) map.set(s.number, { simple: s.nameMalay, arabic: s.nameArabic });

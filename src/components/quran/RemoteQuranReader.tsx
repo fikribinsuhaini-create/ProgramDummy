@@ -7,6 +7,7 @@ import {
   fetchPageVerses,
   fetchChapters,
   getMalayTranslationIdOrSlug,
+  type RemoteChapter,
   type RemoteVerse
 } from "@/lib/islamic-api";
 import { Card } from "@/components/ui/Card";
@@ -273,7 +274,7 @@ export function RemoteQuranReader(props: Props) {
           const ch = await fetchChapters("en");
           if (!cancelled) {
             setChapters(
-              (ch.data?.chapters ?? []).map((c: any) => ({
+              (ch.data?.chapters ?? []).map((c: RemoteChapter) => ({
                 id: Number(c.id),
                 name_simple: String(c.name_simple ?? ""),
                 name_arabic: String(c.name_arabic ?? "")
